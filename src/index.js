@@ -12,4 +12,29 @@ document.addEventListener("DOMContentLoaded", () => {
       toyFormContainer.style.display = "none";
     }
   });
+  getToys()
 });
+
+
+
+
+
+function getToys() {
+
+  function displayToys(toyJSON) {
+    let toyCollection = document.querySelector("div#toy-collection")
+
+    toyJSON.forEach(function(toy){
+      let toyCard = document.createElement("div")
+      toyCard.className = "card"
+      toyCard.innerHTML = `
+        <h2>${toy.name}</h2>
+        <img src=${toy.image} class="toy-avatar" />
+        <p> ${toy.likes} Likes </p>
+        <button class="like-btn">Like <3</button>`
+      toyCollection.append(toyCard)
+    })
+  }
+  fetch('http://localhost:3000/toys').then(response => response.json())
+    .then(displayToys)
+}
