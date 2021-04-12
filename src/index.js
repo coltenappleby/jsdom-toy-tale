@@ -21,9 +21,9 @@ let toyCollection = document.querySelector("div#toy-collection")
 toyCollection.addEventListener('click', event => {
   if (event.target.className == "like-btn") {
     const toyElement = event.target.closest("div")
-    console.log(toyElement)
+    // console.log(toyElement)
   
-
+  
 
   const patchObj = {
     method: "PATCH",
@@ -32,13 +32,13 @@ toyCollection.addEventListener('click', event => {
       Accept: "application/json"
     },
     body: JSON.stringify({
-      "likes": toyElement.querySelector("p").textContent.parseInt() + 1
+      "likes": parseInt(toyElement.querySelector("p").textContent) + 1
     })
   }
 
   fetch(`http://localhost:3000/toys/${toyElement.dataset.id}`, patchObj)
     .then(resp => resp.json())
-    .then(renderOneToy)
+    .then(toy => toyElement.querySelector("p").textContent = `${toy.likes} likes`)
 
   }
 })
@@ -50,6 +50,7 @@ toyCollection.addEventListener('click', event => {
 
 function getToys() {
 
+  toyCollection.innerHTML = ``
   function displayToys(toyJSON) {
     // let toyCollection = document.querySelector("div#toy-collection")
 
