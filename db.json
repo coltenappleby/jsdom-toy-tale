@@ -47,6 +47,30 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "Jessie",
+      "image": "https://vignette.wikia.nocookie.net/p__/images/8/88/Jessie_Toy_Story_3.png/revision/latest?cb=20161023024601&path-prefix=protagonist",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "Zurg",
+      "image": "https://static.wikia.nocookie.net/pixar/images/8/86/FE111586-19EE-447D-8902-9DD1745A2257.png/revision/latest?cb=20181126205610",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "Zurg2",
+      "image": "https://static.wikia.nocookie.net/pixar/images/8/86/FE111586-19EE-447D-8902-9DD1745A2257.png/revision/latest?cb=20181126205610",
+      "likes": 0,
+      "id": 11
+    },
+    {
+      "name": "Bo Peep's Sheep",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flock_of_sheep.jpg/1200px-Flock_of_sheep.jpg",
+      "likes": 0,
+      "id": 12
     }
   ]
 }
