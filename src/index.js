@@ -17,6 +17,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+let toyCollection = document.querySelector("div#toy-collection")
+toyCollection.addEventListener('click', event => {
+  if (event.target.className == "like-btn") {
+    const toyElement = event.target.closest("div")
+    console.log(toyElement)
+  
+
+
+  const patchObj = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      "likes": toyElement.querySelector("p").textContent.parseInt() + 1
+    })
+  }
+
+  fetch(`http://localhost:3000/toys/${toyElement.dataset.id}`, patchObj)
+    .then(resp => resp.json())
+    .then(renderOneToy)
+
+  }
+})
+
+
+
+
+//event => console.log(event.target)
+
 function getToys() {
 
   function displayToys(toyJSON) {
@@ -56,7 +87,6 @@ addToyForm.addEventListener("submit", event => {
 })
 
 function renderOneToy(toy){
-  let toyCollection = document.querySelector("div#toy-collection")
   let toyCard = document.createElement("div")
   toyCard.className = "card"
   toyCard.dataset.id = toy.id
@@ -66,4 +96,9 @@ function renderOneToy(toy){
     <p> ${toy.likes} Likes </p>
     <button class="like-btn">Like <3</button>`
   toyCollection.append(toyCard)
+}
+
+function updateLike(toy) {
+
+
 }
